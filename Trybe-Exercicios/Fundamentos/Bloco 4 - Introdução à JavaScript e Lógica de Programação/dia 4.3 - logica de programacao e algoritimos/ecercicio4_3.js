@@ -48,3 +48,11 @@ if (n > 0) {
 } 
 
 
+function compareTrue(p1, p2) {
+    if ( p1 === true && p2 === true) {
+      return true;
+     }else {
+      return false;
+    }
+}
+  
