@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+      section {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+
+      .main-content .left-content {
+        background-color: green;
+        width: 60%;
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .main-content .left-content .small-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 100%;
+      }
+
+      .main-content .right-content {
+        background-color: blue;
+        width: 60%;
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .main-content .description {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      let tagBody = document.querySelector('body');
+      let newtagH1 = document.createElement('h1');
+      newtagH1.innerText = 'Exercício 5.2 - JavaScript DOM'
+      tagBody.appendChild(newtagH1);
+
+      let newTagMain = document.createElement('main');
+      tagBody.appendChild(newTagMain);
+      
+      let tagMain = document.querySelector('main');
+      let newtagsection = document.createElement('section');
+      newtagsection.className ='center-content';
+      tagMain.appendChild(newtagsection);
+
+      let tagSction = document.querySelector('.center-content');
+      let newtagP = document.createElement('p');
+      newtagP.innerText = "algum texto "
+      tagSction.appendChild(newtagP);
+
+      let newtagsection2 = document.createElement('section');
+      let newtagsection3 = document.createElement('section');
+      newtagsection2.className ='left-content';
+      newtagsection3.className ='right-content';
+      tagMain.appendChild(newtagsection2);
+      tagMain.appendChild(newtagsection3);
+
+      let newtagImg = document.createElement('img');
+      newtagImg.src = 'https://picsum.photos/200'
+      newtagImg.className = 'small-image';
+      newtagsection2.appendChild(newtagImg);
+
+      let valorLista =[ 'um' , 'dois' ,'tres','quatro','cinco','seis','sete','oito','nove','dez' ];
+      let newtagUl = document.createElement('ul');
+      newtagsection3.appendChild(newtagUl);
+
+      let tagUl = document.querySelector('ul');
+      for (let valor of valorLista){
+          let valorAcrescentar = valor;
+          let newTagLi = document.createElement('li');
+          newTagLi.innerText = valorAcrescentar;
+
+          tagUl.append(newTagLi);
+
+      }
+
+      let newtagH3 = document.createElement('h3');
+      let newtagH3_2 = document.createElement('h3');
+      let newtagH3_3 = document.createElement('h3');
+      tagMain.appendChild(newtagH3);
+      tagMain.appendChild(newtagH3_2);
+      tagMain.appendChild(newtagH3_3);
+
+
+      newtagH1.className ='title';
+
+      let TodasH3 = document.querySelectorAll('h3');
+      for (let h3 of TodasH3){
+          h3.className = 'description';
+      }
+
+      newTagMain.removeChild(newtagsection2);
+
+      newtagsection3.style.marginRight = 'auto';
+
+      newtagsection.style.background = 'green';
+
+      let lista_daLista = document.querySelectorAll('li');
+      for (let iten of lista_daLista){
+          let ItemConferencia = iten;
+          if (ItemConferencia.innerText.includes('nove')){
+            newtagUl.removeChild(ItemConferencia)
+          }else if (ItemConferencia.innerText.includes('dez')){
+            newtagUl.removeChild(ItemConferencia)
+          }
+      }
+
+      // ou remover newtagUl.lastChild.remove();
+
+
+
+      
+    </script>
+  </body>
+</html>
